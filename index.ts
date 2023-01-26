@@ -39,7 +39,7 @@ export function second(messages:Array<Message>) {
   const lastMessages:Array<string> = []; //This is the variable to store the last message for each person.
 
   //This is the section to make a group by user ID.
-  const groupBy = (objectArray:Array<Message>, property:string) => {
+  const groupBy = (objectArray:Array<Message>, property:string):any => {
     return objectArray.reduce((acc, obj) => {
       const key:number = obj[property];
       if (!acc[key]) {
@@ -50,7 +50,7 @@ export function second(messages:Array<Message>) {
       return acc;
     }, {});
   }
-  const groupedMessages = groupBy(messages, 'userId');
+  const groupedMessages:any = groupBy(messages, 'userId');
 
   //This is the section to choose the last message for each user.
   for (let i = 1; i <= Object.keys(groupedMessages).length; i ++) {
